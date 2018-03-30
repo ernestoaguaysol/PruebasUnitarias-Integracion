@@ -22,5 +22,27 @@ describe('Formularios', () => {
 
     });
 
+    it('El email debe de ser obligatorio', () => {
+
+
+        const control = componente.form.get('email');
+        control.setValue('');
+
+        expect(control.valid).toBeFalsy();
+
+        
+    });
+
+    it('El email debe de ser correo válido', () => {
+
+
+        const control = componente.form.get('email');
+        control.setValue('hola@gmail.com');
+
+        expect(control.valid).toBeTruthy();
+
+
+    });
+
 });
 
