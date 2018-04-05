@@ -6,9 +6,10 @@ describe('Rutas priincipales', () => {
 
     it('Debe de existir la ruta /medico/:id', () => {
 
-        expect(RUTAS).toContain(
-            { path: 'medico/:id', component: MedicoComponent}
-        );
+        expect(RUTAS).toContain({ 
+            path: 'medico/:id', 
+            component: MedicoComponent
+        });
     });
 });
 

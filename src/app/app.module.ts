@@ -8,6 +8,10 @@ import { MedicoComponent } from './intermedio2/medico/medico.component';
 import { MedicoService } from './intermedio2/medico/medico.service';
 import { HospitalComponent } from './intermedio2/hospital/hospital.component';
 import { IncrementadorComponent } from './intermedio2/incremantador/incrementador.component';
+import { RouterModule } from '@angular/router';
+import { RUTAS } from './avanzado/rutas/app.routes';
+
+import { RouterTestingModule } from "@angular/router/testing";
 
 
 @NgModule({
@@ -19,7 +23,8 @@ import { IncrementadorComponent } from './intermedio2/incremantador/incrementado
     IncrementadorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(RUTAS)
   ],
   providers: [
     MedicoService
