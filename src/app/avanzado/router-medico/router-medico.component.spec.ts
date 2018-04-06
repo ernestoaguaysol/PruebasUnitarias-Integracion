@@ -4,6 +4,7 @@ import { RouterMedicoComponent } from './router-medico.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/empty';
+import { Subject } from 'rxjs/Subject';
 
 class FakeRouter {
   navigate(params) {
@@ -12,7 +13,19 @@ class FakeRouter {
 }
 
 class FakeActivatedRoute {
-  params: Observable<any> = Observable.empty();
+  // params: Observable<any> = Observable.empty();
+
+  private subject = new Subject();
+
+  // a lo que sea que esté suscripto, va a recibir una vez que hagamos esto
+  // Envia un parametro al observable
+  push(valor) {
+    this.subject.next(valor);
+  }
+
+  get params() {
+    return this.subject.asObservable(); // devuelve un observable
+  }
 }
 
 describe('RouterMedicoComponent', () => {
@@ -45,4 +58,15 @@ describe('RouterMedicoComponent', () => {
     expect( spy ).toHaveBeenCalledWith( ['medico', '123']);
   });
 
+
+  it('Debe de colocar el id = nuevo', () => {
+
+    component = fixture.componentInstance;
+
+    const activatedRoute: FakeActivatedRoute = TestBed.get(ActivatedRoute);
+
+    activatedRoute.push({ id: 'nuevo' });
+
+    expect( component.id ).toBe('nuevo');
+  });
 });
