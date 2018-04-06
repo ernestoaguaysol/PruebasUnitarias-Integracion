@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { RUTAS } from './avanzado/rutas/app.routes';
 
 import { RouterTestingModule } from "@angular/router/testing";
+import { NavbarComponent } from './avanzado/navbar/navbar.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RouterTestingModule } from "@angular/router/testing";
     MedicosComponent,
     MedicoComponent,
     HospitalComponent,
-    IncrementadorComponent
+    IncrementadorComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
