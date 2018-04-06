@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
 import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core'; // schemas: [ NO_ERRORS_SCHEMA ] para ignorar componentes que no estan
 
 describe('AppComponent', () => {
 
